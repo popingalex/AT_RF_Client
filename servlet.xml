@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servlets>
+	<servlet>
+		<impl>org.ats.atrf.service.task.TaskArrangeServlet</impl>
+		<path>/task/arrange</path>
+		<description>任务分配</description>
+	</servlet>
+	<servlet>
+		<impl>org.ats.atrf.service.task.TaskQueryServlet</impl>
+		<path>/task/query</path>
+		<description>任务查询</description>
+	</servlet>
+	<servlet>
+		<impl>org.ats.atrf.service.client.ClientQueryServlet</impl>
+		<path>/client/query</path>
+		<description>客户端状态查询</description>
+	</servlet>
+	<servlet>
+		<impl>org.ats.atrf.service.client.ClientSyncServlet</impl>
+		<path>/client/sync</path>
+		<description>客户端状态同步</description>
+	</servlet>
+	<!-- 下面都是测试用哒 -->
+	<servlet>
+		<impl>org.ats.atrf.demo.TestTaskArrangeServlet</impl>
+		<path>/test</path>
+		<description>任务分派测试</description>
+	</servlet>
+	<servlet>
+		<impl>org.ats.atrf.demo.TestFetchDatasetServlet</impl>
+		<path>/test/dataset</path>
+		<description>数据集测试数据</description>
+	</servlet>
+	<servlet>
+		<impl>org.ats.atrf.demo.TestFetchSceneServlet</impl>
+		<path>/test/scene</path>
+		<description>场景测试数据</description>
+	</servlet>
+	<servlet>
+		<impl>org.ats.atrf.demo.TestFetchTestcaseServlet</impl>
+		<path>/test/testcase</path>
+		<description>用例测试数据</description>
+	</servlet>
+</servlets>

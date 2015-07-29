@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedules>
+	<!-- -1 stands for forever -->
+	<services>
+		<!-- <service> <name>task_loop</name> <reptimes>-1</reptimes> <interval>2</interval> 
+			<description>任务队列扫描服务</description> </service> -->
+		<service>
+			<name>pulse_validate</name>
+			<reptimes>-1</reptimes>
+			<interval>45</interval>
+			<description>服务器握手服务</description>
+		</service>
+	</services>
+	<tasks>
+	</tasks>
+</schedules>

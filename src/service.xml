@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<!-- <service>
+		<impl>org.ats.atrf.service.task.TaskLoopService</impl>
+		<name>task_loop</name>
+		<description>任务队列扫描</description>
+	</service> -->
+	<service>
+		<impl>org.ats.atrf.service.client.PulseValidateService</impl>
+		<name>pulse_validate</name>
+		<description>服务器握手</description>
+	</service>
+	<service>
+        <impl>org.ats.atrf.service.task.AutotestProcessService</impl>
+        <name>autotest_process</name>
+        <description>自动化测试进程</description>
+    </service>
+</services>
