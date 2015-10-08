@@ -1,4 +1,4 @@
-package org.ats.atrf.resource;
+package org.aqua.io.file;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +22,7 @@ public class FileUtil {
     }
 
     public static void makeFile(String path, String content, Boolean overwrite) {
-        makeFile(new File(path), content, overwrite);
+        makeFile(new File(path), content, true);
     }
 
     public static void makeFile(File file, String content, Boolean overwrite) {
@@ -44,40 +44,37 @@ public class FileUtil {
         }
     }
 
-    public static String readFile(String path) {
+    public static String readFile(Reader reader) {
         StringBuffer buffer = new StringBuffer();
         try {
-            Reader reader = readFileReader(path);
-            if (reader == null) {
-                return null;
-            }
-            BufferedReader bufferedReader = new BufferedReader(readFileReader(path));
+            BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                buffer.append(line).append(IConstants.LINE_SEPARATOR);
+                buffer.append(line).append(System.getProperty("line.separator"));
             }
             bufferedReader.close();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println(path + " not found");
-        } catch (IOException e) {
+        }  catch (IOException e) {
             e.printStackTrace();
         }
         return buffer.toString();
     }
 
-    public static Reader readFileReader(String path) {
+    public static Reader readReader(String path) {
+        return readReader(path, "UTF-8");
+    }
+    
+    public static Reader readReader(String path, String charset) {
         try {
-            return new InputStreamReader(readFileStream(path), "UTF-8");
+            return new InputStreamReader(readStream(path), charset);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static InputStream readFileStream(String path) {
+    public static InputStream readStream(String path) {
         File file = new File(path);
         try {
             return new FileInputStream(file);

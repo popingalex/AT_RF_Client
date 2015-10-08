@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
 
+import org.aqua.io.file.FileUtil;
+
 public interface IConstants {
     public static String     LINE_SEPARATOR     = System.getProperty("line.separator");
 
@@ -24,7 +26,7 @@ public interface IConstants {
         public AProperties() {
             super();
             try {
-                load(new InputStreamReader(new FileInputStream("config.properties")));
+                load(FileUtil.readStream("config.properties"));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

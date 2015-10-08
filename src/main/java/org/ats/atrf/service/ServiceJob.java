@@ -7,7 +7,7 @@ import org.quartz.JobExecutionException;
 
 public class ServiceJob implements Job {
 
-    @Override
+//    @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         AbstractService service = (AbstractService) context.getMergedJobDataMap().get("service");
         service.service(new ServiceContent(context.getMergedJobDataMap()));

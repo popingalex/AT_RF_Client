@@ -8,7 +8,6 @@ import net.sf.json.JSONObject;
 
 import org.ats.atrf.net.Net;
 import org.ats.atrf.resource.ConfigUtil;
-import org.ats.atrf.resource.FileUtil;
 import org.ats.atrf.resource.IConstants;
 import org.ats.atrf.service.AbstractService;
 import org.ats.atrf.service.ServiceServlet;

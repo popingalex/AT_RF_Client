@@ -1,0 +1,45 @@
+biz:
+  IMMS:
+    in: #话单入口
+      verifile: /cbbs_test4/fszqjf/data/work/verifile/imms
+    out: #结果出口
+    - type: verifile err 
+      path: /cbbs_test4/fszqjf/data/error/verifile/prov
+      name: Fname
+    - type: decode err
+      path: /cbbs_test4/fszqjf/data/error/decode/imms
+      name: Fname
+    - type: rpling err
+      path: /cbbs_test4/fszqjf/data/error/rpling/imms
+      name: Fname
+    - type: chkdup err
+      path: /cbbs_test4/fszqjf/data/error/chkdup/imms
+      name: Fname
+    - type: chkdup out
+      path: /cbbs_test4/balance4/data/xprocess/imms/XdrMap_imms
+      name: name
+    ecframe: #话单处理工具
+      verifile: /cbbs_test4/fszqjf/config/verifile/verifile_00043201_imms.xml
+      decode: /cbbs_test4/fszqjf/config/decode/decode_10043201_imms.xml
+      rpling: /cbbs_test4/fszqjf/config/rpling/rpling_20043201_imms.xml
+      chkdup: /cbbs_test4/fszqjf/config/chkdup/chkdup_30043201_imms.xml
+path:
+  remote:
+    temp: /cbbs_test4/fszqjf/alextemp/temp
+  local:
+    in: C:/workspace/bill/temp/in
+    out: C:/workspace/bill/out
+    temp: C:/workspace/bill/temp/out
+timeout: 100
+remote:
+  ftp:
+    host: 10.248.12.66
+    port: 21
+    acct: fszq_jf
+    pswd: fszqjf
+  ssh:
+    host: 10.248.12.66
+    port: 22
+    acct: fszq_jf
+    pswd: fszqjf
+rule: C:/workspace/bill/source/话单文件名称及各记录字段统计.xlsx

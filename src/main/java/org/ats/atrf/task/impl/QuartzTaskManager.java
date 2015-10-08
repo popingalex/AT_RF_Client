@@ -32,7 +32,7 @@ public class QuartzTaskManager implements ITaskManager {
         }
     }
 
-    @Override
+//    @Override
     public SimpleTask offer(SimpleTask task, JSONObject scheduleObject) {
         Integer dotimes = scheduleObject.getInt("reptimes");
         Integer interval = scheduleObject.getInt("interval");
@@ -50,7 +50,7 @@ public class QuartzTaskManager implements ITaskManager {
         return offer(task, trigger);
     }
 
-    @Override
+//    @Override
     public SimpleTask offer(SimpleTask task, Date date) {
         MutableTrigger trigger = SimpleScheduleBuilder.simpleSchedule().build();
         trigger.setStartTime(new Date());
@@ -67,7 +67,7 @@ public class QuartzTaskManager implements ITaskManager {
         jobBuilder.setJobData(new JobDataMap(task.datamap));
         JobDetail jobDetail = jobBuilder.build();
         trigger.setKey(TriggerKey.triggerKey(jobDetail.getKey().getName(), jobDetail.getKey().getGroup()));
-        // TODO ¼ì²éÒ»ÏÂQuartzµÄÈÎÎñÖ´ÐÐÍ¬²½Çé¿ö. ÊÇ·ñ¿ÉÒÔ·Ö×éÉèÖÃÍ¬²½ºÍ²¢·¢
+        // TODO ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Quartzï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½Ç·ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½
         try {
             // check exist
             if (!scheduler.checkExists(jobDetail.getKey())) {
@@ -81,19 +81,19 @@ public class QuartzTaskManager implements ITaskManager {
         return task;
     }
 
-    @Override
+//    @Override
     public SimpleTask drop(String id) {
         // return scheduler.deleteJob(JobKey.jobKey(id));
         return null;
     }
 
-    @Override
+//    @Override
     public SimpleTask modify(String id, SimpleTask task) {
         // TODO Auto-generated method stub
         return task;
     }
 
-    @Override
+//    @Override
     public SimpleTask query(String id) {
         try {
             JobDetail detail = scheduler.getJobDetail(JobKey.jobKey(id));
@@ -105,7 +105,7 @@ public class QuartzTaskManager implements ITaskManager {
         return null;
     }
 
-    @Override
+//    @Override
     public List<SimpleTask> queryAll() {
         // TODO Auto-generated method stub
         return new ArrayList<SimpleTask>();

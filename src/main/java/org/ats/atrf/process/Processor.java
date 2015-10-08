@@ -73,7 +73,6 @@ public class Processor {
 
             processing = true;
             Thread inputThread = new Thread(new Runnable() {
-                @Override
                 public void run() {
                     BufferedReader inputReader = new BufferedReader(new InputStreamReader(stdInputStream, charset));
                     while (processing) {
@@ -93,7 +92,7 @@ public class Processor {
             while (!processing) {// wait process to start
             }
             writeSource(sourceBuffer.toArray());
-
+            
             int result = process.waitFor();
             System.out.println("process result : " + result);
             processing = false;
